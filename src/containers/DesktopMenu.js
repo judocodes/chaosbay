@@ -13,17 +13,17 @@ const components = {
             w={2000}
             h={2000}
             textStyle={
-                'text-white text-xl font-light font-raleway tracking-wide'
+                'text-white text-md font-light font-raleway tracking-wide text-justify'
             }
             headingStyle={
-                'text-white text-3xl text-center uppercase tracking-wider'
+                'text-white text-2xl text-center uppercase tracking-wider'
             }
         />
     ),
     dates: (
         <Dates
             headingStyle={
-                'text-white text-3xl text-center uppercase tracking-wider'
+                'text-white text-2xl text-center uppercase tracking-wider'
             }
             textColor={'#fff'}
         />
@@ -31,13 +31,13 @@ const components = {
     media: (
         <Media
             headingStyle={
-                'text-white text-3xl text-center uppercase tracking-wider'
+                'text-white text-2xl text-center uppercase tracking-wider'
             }
         />
     ),
     contact: (
         <Contact
-            headingStyle={'text-white text-3xl uppercase tracking-tight'}
+            headingStyle={'text-white text-2xl uppercase tracking-tight'}
         />
     ),
 };
@@ -70,7 +70,7 @@ const DesktopMenu = forwardRef(({ moveMenuToTop, moveMenuToBottom }, ref) => {
                             active === 'about'
                                 ? 'border-color-primary'
                                 : 'hover:border-color-primary'
-                        } cursor-pointer border-b-4 border-transparent  mx-10 font-light tracking-wider`}
+                        } transition duration-300 cursor-pointer border-b-4 border-transparent  mx-10 font-light tracking-wider`}
                     >
                         About
                     </li>
@@ -81,13 +81,13 @@ const DesktopMenu = forwardRef(({ moveMenuToTop, moveMenuToBottom }, ref) => {
                             active === 'dates'
                                 ? 'border-color-primary'
                                 : 'hover:border-color-primary'
-                        } cursor-pointer border-b-4 border-transparent  mx-10 font-light tracking-wider`}
+                        } transition duration-300 cursor-pointer border-b-4 border-transparent  mx-10 font-light tracking-wider`}
                     >
                         Dates
                     </li>
                     <a href="https://timezonerecords.lnk.to/asylum">
                         <li
-                            className={`cursor-pointer border-b-4 border-transparent hover:border-color-primary mx-10 flex flex-col text-center animate-pulse`}
+                            className={`transition duration-300 cursor-pointer border-b-4 border-transparent hover:border-color-primary mx-10 flex flex-col text-center animate-pulse`}
                         >
                             <span className="font-medium">The New Album: </span>
                             <span className="font-medium text-2xl text-primary leading-none pb-2">
@@ -102,7 +102,7 @@ const DesktopMenu = forwardRef(({ moveMenuToTop, moveMenuToBottom }, ref) => {
                             active === 'media'
                                 ? 'border-color-primary'
                                 : 'hover:border-color-primary'
-                        } cursor-pointer border-b-4 border-transparent mx-10 font-light tracking-wider`}
+                        } transition duration-300 cursor-pointer border-b-4 border-transparent mx-10 font-light tracking-wider`}
                     >
                         Media
                     </li>
@@ -113,7 +113,7 @@ const DesktopMenu = forwardRef(({ moveMenuToTop, moveMenuToBottom }, ref) => {
                             active === 'contact'
                                 ? 'border-color-primary'
                                 : 'hover:border-color-primary'
-                        } cursor-pointer border-b-4 border-transparent mx-10 font-light tracking-wider`}
+                        } transition duration-300 cursor-pointer border-b-4 border-transparent mx-10 font-light tracking-wider`}
                     >
                         Contact
                     </li>

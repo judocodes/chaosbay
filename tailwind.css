@@ -4,28 +4,28 @@
 
 @layer utilities {
     .text-primary {
-        color: hsl(46, 71%, 46%);
+        color: hsl(46, 56%, 64%);
     }
 
     .border-color-primary {
-        border-color: hsl(46, 71%, 46%);
+        border-color: hsl(46, 56%, 64%);
     }
 
     .bg-primary {
-        background-color: hsl(46, 71%, 46%);
+        background-color: hsl(46, 56%, 64%);
     }
 
     @variants hover {
         .text-primary {
-            color: hsl(46, 71%, 46%);
+            color: hsl(46, 56%, 64%);
         }
 
         .border-color-primary {
-            border-color: hsl(46, 71%, 46%);
+            border-color: hsl(46, 56%, 64%);
         }
 
         .bg-primary {
-            background-color: hsl(46, 71%, 46%);
+            background-color: hsl(46, 56%, 64%);
         }
     }
 }

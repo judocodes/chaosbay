@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import './tailwind.css';
-import './custom.css';
 
 import { CloudinaryContext } from 'cloudinary-react';
 import SimpleReactLightbox from 'simple-react-lightbox';
@@ -66,6 +65,7 @@ function App() {
             rotation: -50,
             scale: 0.8,
             opacity: 0.1,
+            filter: 'brightness(50%)',
         });
 
         tl.set(menu, {
@@ -79,6 +79,10 @@ function App() {
 
         tl.set(button, {
             y: 100,
+        });
+
+        tl.set(social, {
+            opacity: 0,
         });
 
         // Actual Animation
@@ -102,6 +106,7 @@ function App() {
                     scale: 1,
                     opacity: 0.75,
                     duration: 2,
+                    filter: 'brightness(100%)',
                     ease: 'power1',
                 },
                 'logo-appeared+=0'
@@ -213,16 +218,20 @@ function App() {
             <SimpleReactLightbox>
                 <main className="relative flex items-center justify-center px-6 w-screen main-wrapper font-rubik p-8">
                     <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center overflow-hidden px-6">
-                        <SocialIcons
-                            ref={socialEl}
-                            hide={true}
-                            className="z-30"
-                        />
+                        {!mobileMenu && (
+                            <SocialIcons
+                                ref={socialEl}
+                                hide={true}
+                                className="z-30"
+                            />
+                        )}
 
-                        <Heading
-                            ref={headingEl}
-                            className="z-10 w-full opacity-0 main-heading"
-                        />
+                        {!mobileMenu && (
+                            <Heading
+                                ref={headingEl}
+                                className="z-10 w-full main-heading"
+                            />
+                        )}
                         <div
                             ref={overlayEl}
                             className="absolute w-full h-full top-0 left-0 bg-white opacity-0"
@@ -244,17 +253,19 @@ function App() {
                         />
                     </div>
                     {/* Mobile Button */}
-                    <button
-                        onClick={() => setMobileMenu(true)}
-                        ref={buttonEl}
-                        className="lg:hidden inline-block text-center absolute bottom-0 w-full pb-4 text-gray-700 text-lg uppercase tracking-widest font-semibold focus:bg-primary focus:text-black transition duration-100"
-                    >
-                        <div
-                            ref={goldenLineEl}
-                            className="h-1 bg-primary w-full mb-4 transform -translate-x-full"
-                        ></div>
-                        Learn more
-                    </button>
+                    {!mobileMenu && (
+                        <button
+                            onClick={() => setMobileMenu(true)}
+                            ref={buttonEl}
+                            className="lg:hidden inline-block text-center absolute bottom-0 w-full pb-4 text-gray-700 text-lg uppercase tracking-widest font-semibold focus:bg-primary focus:text-black transition duration-100"
+                        >
+                            <div
+                                ref={goldenLineEl}
+                                className="h-1 bg-primary w-full mb-4 transform -translate-x-full"
+                            ></div>
+                            More
+                        </button>
+                    )}
                     {mobileMenu && (
                         <MobileMenu toggle={() => setMobileMenu(false)} />
                     )}

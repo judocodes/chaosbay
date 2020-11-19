@@ -19337,39 +19337,39 @@ video {
 }
 
 .text-primary {
-  color: hsl(46, 71%, 46%);
+  color: hsl(46, 56%, 64%);
 }
 
 .border-color-primary {
-  border-color: hsl(46, 71%, 46%);
+  border-color: hsl(46, 56%, 64%);
 }
 
 .bg-primary {
-  background-color: hsl(46, 71%, 46%);
+  background-color: hsl(46, 56%, 64%);
 }
 
 .text-primary {
-  color: hsl(46, 71%, 46%);
+  color: hsl(46, 56%, 64%);
 }
 
 .border-color-primary {
-  border-color: hsl(46, 71%, 46%);
+  border-color: hsl(46, 56%, 64%);
 }
 
 .bg-primary {
-  background-color: hsl(46, 71%, 46%);
+  background-color: hsl(46, 56%, 64%);
 }
 
 .hover\:text-primary:hover {
-  color: hsl(46, 71%, 46%);
+  color: hsl(46, 56%, 64%);
 }
 
 .hover\:border-color-primary:hover {
-  border-color: hsl(46, 71%, 46%);
+  border-color: hsl(46, 56%, 64%);
 }
 
 .hover\:bg-primary:hover {
-  background-color: hsl(46, 71%, 46%);
+  background-color: hsl(46, 56%, 64%);
 }
 
 @media (min-width: 640px) {

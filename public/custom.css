@@ -9,10 +9,23 @@
 
 .main-logo {
     width: 80vw;
+    color: hsl(213.8, 20.3%, 69%);
 }
 
 .about-pic {
     clip-path: polygon(0 4%, 98% 0, 100% 2%, 100% 96%, 0 100%);
+}
+
+.about-text {
+    hyphens: none;
+}
+
+.album-artwork {
+    position: relative;
+    background-image: url('assets/artwork.jpg');
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
 }
 
 .main-wrapper {
@@ -27,7 +40,7 @@
 
 .content-wrapper {
     max-width: 1024px;
-    max-height: 85%;
+    max-height: 92%;
     min-height: 8rem;
 }
 

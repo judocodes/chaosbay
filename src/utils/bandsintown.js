@@ -1,5 +1,4 @@
-export default () => {
-    !(function (t) {
+!(function (t) {
         function e(e) {
             for (var n, o, r = e[0], a = e[1], s = 0, l = []; s < r.length; s++)
                 (o = r[s]),
@@ -702,11 +701,7 @@ export default () => {
         },
         function (t, e, n) {
             'use strict';
-            /*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/ var i =
+           var i =
                     Object.getOwnPropertySymbols,
                 o = Object.prototype.hasOwnProperty,
                 r = Object.prototype.propertyIsEnumerable;
@@ -1020,9 +1015,7 @@ object-assign
                  * @license   Licensed under MIT license
                  *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
                  * @version   v4.2.5+7f2b526d
-                 */
-
-                var i;
+                 */ var i;
                 (i = function () {
                     'use strict';
                     function t(t) {
@@ -4209,4 +4202,3 @@ object-assign
                 });
         },
     ]);
-};

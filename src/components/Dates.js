@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
-// import bandsintown from '../utils/bandsintown';
+import React from 'react';
 
 import Divider from './Divider';
 
 const Dates = ({ headingStyle, textColor }) => {
-    useEffect(() => {
-        // bandsintown();
-    }, []);
-
     return (
         <aside className="pb-20">
-            <h3 className={`font-semibold mb-2 text-2xl ${headingStyle}`}>
+            <h3 className={`font-semibold text-xl ${headingStyle}`}>
                 Tour Dates
             </h3>
             <Divider />
+            <script
+                defer
+                charSet="utf-8"
+                src="https://widget.bandsintown.com/main.min.js"
+            ></script>
             <a
                 className="bit-widget-initializer"
                 data-artist-name="Chaosbay"

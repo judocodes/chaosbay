@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { VscClose } from 'react-icons/vsc';
 import SocialIcons from '../components/SocialIcons';
 
+import MobileAlbumButton from '../components/MobileAlbumButton';
 import MobileShell from './MobileShell';
 import Loading from '../components/Loading';
 import About from '../components/About';
@@ -42,33 +43,20 @@ const MobileMenu = ({ toggle }) => {
     return (
         <section
             ref={wrapperEl}
-            className="absolute top-0 left-0 z-20 w-full min-h-full transform translate-y-full py-16 px-8 bg-gray-200 border-t-4 border-color-primary"
+            className="absolute top-0 left-0 z-20 w-full min-h-full transform translate-y-full py-16 px-8 bg-black bg-opacity-50 border-t-4 border-color-primary"
         >
             {/* Close Icon */}
             <VscClose
                 onClick={toggle}
-                className="w-12 h-12 absolute top-0 left-0 pl-4 pt-4 cursor-pointer text-gray-600"
+                className="w-12 h-12 absolute top-0 left-0 pl-4 pt-4 cursor-pointer text-white"
             />
-            <SocialIcons />
+            <SocialIcons textColor={'text-white'} />
             <ul className="uppercase tracking-wider text-gray-800 text-xl font-medium">
-                <a
-                    className="group"
-                    href="https://timezonerecords.lnk.to/asylum"
-                >
-                    <li className="my-10 text-center rounded pb-4 pt-5 bg-black border-4 border-color-primary hover:text-black shadow-lg">
-                        <span className="font-semibold text-primary tracking-widest">
-                            The New Album:
-                        </span>{' '}
-                        <br />
-                        <span className="text-white group-hover:text-black text-2xl font-semibold leading-none">
-                            Asylum
-                        </span>
-                    </li>
-                </a>
+                <MobileAlbumButton />
                 <li
                     id="about"
                     onClick={openMenuItem}
-                    className="text-center border-l-4 rounded border-color-primary shadow-inner text-gray-900 tracking-wide bg-gray-300 py-3  my-4"
+                    className="text-center rounded border-color-primary shadow-inner text-gray-900 tracking-wide bg-gray-100 py-3  my-4"
                 >
                     About
                 </li>
@@ -79,6 +67,7 @@ const MobileMenu = ({ toggle }) => {
                                 w={500}
                                 h={500}
                                 headingStyle={'text-center'}
+                                textStyle={'about-text'}
                             />
                         </MobileShell>
                     </li>
@@ -86,7 +75,7 @@ const MobileMenu = ({ toggle }) => {
                 <li
                     id="dates"
                     onClick={openMenuItem}
-                    className="text-center border-l-4 rounded border-color-primary shadow-inner text-gray-900 tracking-wide bg-gray-300 py-3  my-4"
+                    className="text-center rounded border-color-primary shadow-inner text-gray-900 tracking-wide bg-gray-100 py-3  my-4"
                 >
                     Dates
                 </li>
@@ -105,7 +94,7 @@ const MobileMenu = ({ toggle }) => {
                 <li
                     id="media"
                     onClick={openMenuItem}
-                    className="text-center border-l-4 rounded border-color-primary shadow-inner text-gray-900 tracking-wide bg-gray-300 py-3  my-4"
+                    className="text-center rounded border-color-primary shadow-inner text-gray-900 tracking-wide bg-gray-100 py-3  my-4"
                 >
                     Media
                 </li>
@@ -113,7 +102,12 @@ const MobileMenu = ({ toggle }) => {
                     <li>
                         <Suspense fallback={<Loading />}>
                             <MobileShell>
-                                <Media headingStyle={'text-center'} />
+                                <Media
+                                    headingStyle={'invisible mb-0'}
+                                    linkStyle={
+                                        'text-gray-900 w-full text-center mt-2'
+                                    }
+                                />
                             </MobileShell>
                         </Suspense>
                     </li>
@@ -121,7 +115,7 @@ const MobileMenu = ({ toggle }) => {
                 <li
                     id="contact"
                     onClick={openMenuItem}
-                    className="text-center border-l-4 rounded border-color-primary shadow-inner text-gray-900 tracking-wide bg-gray-300 py-3  my-4"
+                    className="text-center rounded border-color-primary shadow-inner text-gray-900 tracking-wide bg-gray-100 py-3  my-4"
                 >
                     Contact
                 </li>
