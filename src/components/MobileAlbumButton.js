@@ -34,20 +34,19 @@ const MobileAlbumButton = () => {
             {albumOpen && (
                 <li className="transform origin-top scale-y-0" ref={albumPicEl}>
                     <a href="https://timezonerecords.lnk.to/asylum">
-                        <div className="album-artwork relative">
-                            <div className="absolute top-0 left-0 bg-black bg-opacity-50 h-full w-full flex items-center justify-center">
-                                <p className="pb-12">
-                                    <span className="font-light text-white">
-                                        New Album:{' '}
-                                    </span>
-                                    <span className="font-semibold text-primary">
-                                        Asylum
-                                    </span>
-                                </p>
-                                <h3 className="animate-pulse text-white absolute bottom-0 text-center w-full pb-2">
+                        <div className="album-artwork relative"></div>
+                        <div className="bg-black bg-opacity-50 h-full w-full text-center">
+                            <p className="pt-3 animate-pulse">
+                                <span className="font-light text-white">
+                                    New Album:{' '}
+                                </span>
+                                <span className="font-semibold text-primary">
+                                    Asylum
+                                </span>
+                                <h3 className="mt-0 leading-none text-white text-center w-full pb-5">
                                     Buy Now
                                 </h3>
-                            </div>
+                            </p>
                         </div>
                     </a>
                 </li>
