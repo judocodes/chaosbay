@@ -40,7 +40,7 @@
 
 .content-wrapper {
     max-width: 1024px;
-    max-height: 92%;
+    max-height: 92vh;
     min-height: 8rem;
 }
 

@@ -193,18 +193,23 @@ function App() {
 
     function moveMenuToTop() {
         const div = divEl.current;
+        const vh = window.innerHeight * 0.01;
+
+        const smallScreenTop = vh * 20 + 'px';
+        const bigScreenTop = vh * 15 + 'px';
 
         gsap.to(div, {
-            top: '20%',
+            top: window.innerHeight > 900 ? bigScreenTop : smallScreenTop,
             duration: 0.5,
         });
     }
 
     function moveMenuToBottom() {
         const div = divEl.current;
+        const vh = window.innerHeight * 0.01;
 
         gsap.to(div, {
-            top: '90%',
+            top: vh * 90 + 'px',
             duration: 0.5,
         });
     }
