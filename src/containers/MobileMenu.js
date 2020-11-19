@@ -43,7 +43,7 @@ const MobileMenu = ({ toggle }) => {
     return (
         <section
             ref={wrapperEl}
-            className="absolute top-0 left-0 z-20 w-full min-h-full transform translate-y-full py-16 px-8 bg-black bg-opacity-50 border-t-4 border-color-primary"
+            className="lg:hidden absolute top-0 left-0 z-20 w-full min-h-full transform translate-y-full py-16 px-8 bg-black bg-opacity-50 border-t-4 border-color-primary"
         >
             {/* Close Icon */}
             <VscClose

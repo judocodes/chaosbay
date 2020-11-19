@@ -23,9 +23,9 @@
 .album-artwork {
     position: relative;
     background-image: url('assets/artwork.jpg');
+    background-size: cover;
     height: 20rem;
     width: 100%;
-    object-fit: cover;
 }
 
 .main-wrapper {
