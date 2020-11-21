@@ -1,9 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import gsap from 'gsap';
+import React, { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
+import useAlbum from "../hooks/useAlbum";
 
 const MobileAlbumButton = () => {
     const [albumOpen, setAlbumOpen] = useState(false);
     const albumPicEl = useRef(null);
+    const [album] = useAlbum();
 
     useEffect(() => {
         const albumPic = albumPicEl.current;
@@ -20,12 +22,12 @@ const MobileAlbumButton = () => {
             <li
                 onClick={() => setAlbumOpen(!albumOpen)}
                 className={`${
-                    albumOpen ? 'mt-10 mb-4' : 'my-10'
+                    albumOpen ? "mt-10 mb-4" : "my-10"
                 } text-center rounded pb-4 pt-5 bg-black border-4 border-color-primary hover:text-black shadow-lg`}
             >
                 <span
                     className={`${
-                        !albumOpen && 'animate-pulse'
+                        !albumOpen && "animate-pulse"
                     } text-white group-hover:text-black text-2xl font-semibold leading-none`}
                 >
                     Asylum
@@ -33,15 +35,19 @@ const MobileAlbumButton = () => {
             </li>
             {albumOpen && (
                 <li className="transform origin-top scale-y-0" ref={albumPicEl}>
-                    <a href="https://timezonerecords.lnk.to/asylum">
-                        <div className="album-artwork relative"></div>
+                    <a href={album.albumLink}>
+                        <img
+                            className="block relative w-full object-fit"
+                            alt="Album Artwork"
+                            src={album.artwork}
+                        />
                         <div className="bg-black bg-opacity-50 h-full w-full text-center">
                             <p className="pt-3 animate-pulse">
                                 <span className="font-light text-white">
-                                    New Album:{' '}
+                                    {album.catchPhrase}{" "}
                                 </span>
                                 <span className="font-semibold text-primary">
-                                    Asylum
+                                    {album.albumName}
                                 </span>
                                 <h3 className="mt-0 leading-none text-white text-center w-full pb-5">
                                     Buy Now

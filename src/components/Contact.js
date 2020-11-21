@@ -1,82 +1,120 @@
-import React, { useState } from 'react';
-import Divider from './Divider';
+import React, { useState, useRef } from "react";
+import validator from "validator";
+
+const encode = data => {
+    return Object.keys(data)
+        .map(
+            key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+        )
+        .join("&");
+};
 
 const Contact = ({ headingStyle }) => {
-    const [buttonText, setButtonText] = useState('Send');
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: '',
+    const [buttonText, setButtonText] = useState("Send");
+    const [formFields, setFormFields] = useState({
+        name: "",
+        email: "",
+        message: "",
     });
+    const [missingInputs, setMissingInputs] = useState({});
 
     const sendMail = e => {
         e.preventDefault();
-        console.log(formData);
-        const { email, message, name } = formData;
-        if (!email || !message || !name) {
+        setMissingInputs({});
+        const { email, message, name } = formFields;
+        if (!name.trim()) {
+            setMissingInputs({ name: true });
+            return;
+        }
+        if (!email.trim() || !validator.isEmail(email)) {
+            setMissingInputs({ email: true });
+            return;
+        }
+        if (!message.trim()) {
+            setMissingInputs({ message: true });
             return;
         }
 
-        setButtonText('Thank You!');
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact", ...formFields }),
+        })
+            .then(() => console.log("Form Submitted"))
+            .catch(console.error);
 
-        // Send E-Mail Here
+        setButtonText("Thank You!");
 
         setTimeout(() => {
-            setButtonText('Send');
+            setButtonText("Send");
+            setFormFields({
+                message: "",
+                email: "",
+                name: "",
+            });
         }, 2000);
     };
 
     return (
-        <form
-            action="
-            "
-        >
+        <>
             <h3 className={`font-semibold mb-2 text-2xl ${headingStyle}`}>
                 Contact Us
             </h3>
-            <input
-                name="name"
-                type="text"
-                className="w-full my-2 py-3 px-2 rounded"
-                placeholder="Your name..."
-                onChange={e =>
-                    setFormData({
-                        ...formData,
-                        [e.target.name]: e.target.value,
-                    })
-                }
-            />
-            <input
-                name="email"
-                type="text"
-                className="w-full my-2 py-3 px-2 rounded"
-                placeholder="Your e-mail..."
-                onChange={e =>
-                    setFormData({
-                        ...formData,
-                        [e.target.name]: e.target.value,
-                    })
-                }
-            />
-            <textarea
-                name="message"
-                placeholder="Your message..."
-                onChange={e =>
-                    setFormData({
-                        ...formData,
-                        [e.target.name]: e.target.value,
-                    })
-                }
-                className="w-full my-2 py-3 px-2 rounded h-40"
-            ></textarea>
-            <button
-                onClick={sendMail}
-                type="submit"
-                className="mt-4 bg-primary rounded-lg shadow-md mx-auto px-8 py-2 text-white outline-none"
-            >
-                {buttonText}
-            </button>
-        </form>
+            <form name="contact" method="post">
+                <input type="hidden" name="form-name" value="contact" />
+                <input
+                    name="name"
+                    type="text"
+                    className={`w-full my-2 py-3 px-2 rounded border-2 border-transparent ${
+                        missingInputs.name ? "border-red-400" : ""
+                    }`}
+                    value={formFields.name}
+                    placeholder="Your name..."
+                    onChange={e =>
+                        setFormFields({
+                            ...formFields,
+                            [e.target.name]: e.target.value,
+                        })
+                    }
+                />
+                <input
+                    name="email"
+                    type="text"
+                    className={`w-full my-2 py-3 px-2 rounded border-2 border-transparent ${
+                        missingInputs.email ? "border-red-400" : ""
+                    }`}
+                    value={formFields.email}
+                    placeholder="Your e-mail..."
+                    onChange={e =>
+                        setFormFields({
+                            ...formFields,
+                            [e.target.name]: e.target.value,
+                        })
+                    }
+                />
+                <textarea
+                    name="message"
+                    placeholder="Your message..."
+                    value={formFields.message}
+                    onChange={e =>
+                        setFormFields({
+                            ...formFields,
+                            [e.target.name]: e.target.value,
+                        })
+                    }
+                    className={`w-full my-2 py-3 px-2 rounded h-40 border-2 border-transparent ${
+                        missingInputs.message ? "border-red-400" : ""
+                    }`}
+                ></textarea>
+                <button
+                    onClick={sendMail}
+                    type="submit"
+                    className="mt-4 bg-primary rounded-lg shadow-md mx-auto px-8 py-2 text-white outline-none"
+                >
+                    {buttonText}
+                </button>
+            </form>
+        </>
     );
 };
 

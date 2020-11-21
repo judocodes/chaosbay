@@ -1,20 +1,20 @@
-import React, { useEffect, useRef, useState, Suspense, lazy } from 'react';
-import gsap from 'gsap';
-import { VscClose } from 'react-icons/vsc';
-import SocialIcons from '../components/SocialIcons';
+import React, { useEffect, useRef, useState, Suspense, lazy } from "react";
+import gsap from "gsap";
+import { VscClose } from "react-icons/vsc";
+import SocialIcons from "../components/SocialIcons";
 
-import MobileAlbumButton from '../components/MobileAlbumButton';
-import MobileShell from './MobileShell';
-import Loading from '../components/Loading';
-import About from '../components/About';
-import Contact from '../components/Contact';
+import MobileAlbumButton from "../components/MobileAlbumButton";
+import MobileShell from "./MobileShell";
+import Loading from "../components/Loading";
+import About from "../components/About";
+import Contact from "../components/Contact";
 
-const Media = lazy(() => import('../components/Media'));
-const Dates = lazy(() => import('../components/Dates'));
+const Media = lazy(() => import("../components/Media"));
+const Dates = lazy(() => import("../components/Dates"));
 
 const MobileMenu = ({ toggle }) => {
     const wrapperEl = useRef(null);
-    const [active, setActive] = useState('');
+    const [active, setActive] = useState("");
 
     useEffect(() => {
         const wrapper = wrapperEl.current;
@@ -24,13 +24,13 @@ const MobileMenu = ({ toggle }) => {
         tl.to(wrapper, {
             y: 0,
             duration: 0.5,
-            ease: 'power1',
+            ease: "power1",
         });
     }, []);
 
     const openMenuItem = e => {
         if (e.target.id === active) {
-            setActive('');
+            setActive("");
             return;
         }
 
@@ -50,7 +50,7 @@ const MobileMenu = ({ toggle }) => {
                 onClick={toggle}
                 className="w-12 h-12 absolute top-0 left-0 pl-4 pt-4 cursor-pointer text-white"
             />
-            <SocialIcons textColor={'text-white'} />
+            <SocialIcons textColor={"text-white"} />
             <ul className="uppercase tracking-wider text-gray-800 text-xl font-medium">
                 <MobileAlbumButton />
                 <li
@@ -60,14 +60,14 @@ const MobileMenu = ({ toggle }) => {
                 >
                     About
                 </li>
-                {active === 'about' && (
+                {active === "about" && (
                     <li>
                         <MobileShell>
                             <About
                                 w={500}
                                 h={500}
-                                headingStyle={'text-center'}
-                                textStyle={'about-text'}
+                                headingStyle={"text-center"}
+                                textStyle={"about-text"}
                             />
                         </MobileShell>
                     </li>
@@ -79,13 +79,15 @@ const MobileMenu = ({ toggle }) => {
                 >
                     Dates
                 </li>
-                {active === 'dates' && (
+                {active === "dates" && (
                     <li>
                         <Suspense fallback={<Loading />}>
                             <MobileShell>
                                 <Dates
-                                    headingStyle={'text-center'}
-                                    textColor={'#1A202C'}
+                                    headingStyle={"invisible mb-0"}
+                                    linkStyle={
+                                        "text-gray-900 w-full text-center mt-2"
+                                    }
                                 />
                             </MobileShell>
                         </Suspense>
@@ -98,14 +100,14 @@ const MobileMenu = ({ toggle }) => {
                 >
                     Media
                 </li>
-                {active === 'media' && (
+                {active === "media" && (
                     <li>
                         <Suspense fallback={<Loading />}>
                             <MobileShell>
                                 <Media
-                                    headingStyle={'invisible mb-0'}
+                                    headingStyle={"invisible mb-0"}
                                     linkStyle={
-                                        'text-gray-900 w-full text-center mt-2'
+                                        "text-gray-900 w-full text-center mt-2"
                                     }
                                 />
                             </MobileShell>
@@ -119,7 +121,7 @@ const MobileMenu = ({ toggle }) => {
                 >
                     Contact
                 </li>
-                {active === 'contact' && (
+                {active === "contact" && (
                     <li>
                         <MobileShell>
                             <Contact />

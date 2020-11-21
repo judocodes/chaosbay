@@ -1,11 +1,13 @@
-import React, { forwardRef, useState, Suspense } from 'react';
-import Shell from './Shell';
+import React, { forwardRef, useState, Suspense, useEffect } from "react";
+import Shell from "./Shell";
 
-import Loading from '../components/Loading';
-import About from '../components/About';
-import Dates from '../components/Dates';
-import Media from '../components/Media';
-import Contact from '../components/Contact';
+import useAlbum from "../hooks/useAlbum";
+
+import Loading from "../components/Loading";
+import About from "../components/About";
+import Dates from "../components/Dates";
+import Media from "../components/Media";
+import Contact from "../components/Contact";
 
 const components = {
     about: (
@@ -13,41 +15,44 @@ const components = {
             w={2000}
             h={2000}
             textStyle={
-                'text-white text-md font-light font-raleway tracking-wide text-justify'
+                "text-white text-md font-light font-raleway tracking-wide text-justify"
             }
             headingStyle={
-                'text-white text-2xl text-center uppercase tracking-wider'
+                "text-white text-2xl text-center uppercase tracking-wider"
             }
         />
     ),
     dates: (
         <Dates
             headingStyle={
-                'text-white text-2xl text-center uppercase tracking-wider'
+                "text-white text-2xl text-center uppercase tracking-wider"
             }
-            textColor={'#fff'}
+            textColor={"#fff"}
         />
     ),
     media: (
         <Media
             headingStyle={
-                'text-white text-2xl text-center uppercase tracking-wider'
+                "text-white text-2xl text-center uppercase tracking-wider"
             }
         />
     ),
     contact: (
         <Contact
-            headingStyle={'text-white text-2xl uppercase tracking-tight'}
+            headingStyle={"text-white text-2xl uppercase tracking-tight"}
         />
     ),
 };
 
 const DesktopMenu = forwardRef(({ moveMenuToTop, moveMenuToBottom }, ref) => {
-    const [active, setActive] = useState('');
+    const [active, setActive] = useState("");
+    const [album] = useAlbum();
+
+    useEffect(() => {});
 
     const setActiveMenu = e => {
         if (active === e.target.id) {
-            setActive('');
+            setActive("");
             moveMenuToBottom();
             return;
         }
@@ -67,9 +72,9 @@ const DesktopMenu = forwardRef(({ moveMenuToTop, moveMenuToBottom }, ref) => {
                         onClick={setActiveMenu}
                         id="about"
                         className={`${
-                            active === 'about'
-                                ? 'border-color-primary'
-                                : 'hover:border-color-primary'
+                            active === "about"
+                                ? "border-color-primary"
+                                : "hover:border-color-primary"
                         } transition duration-300 cursor-pointer border-b-4 border-transparent  mx-10 font-light tracking-wider`}
                     >
                         About
@@ -78,20 +83,22 @@ const DesktopMenu = forwardRef(({ moveMenuToTop, moveMenuToBottom }, ref) => {
                         onClick={setActiveMenu}
                         id="dates"
                         className={`${
-                            active === 'dates'
-                                ? 'border-color-primary'
-                                : 'hover:border-color-primary'
+                            active === "dates"
+                                ? "border-color-primary"
+                                : "hover:border-color-primary"
                         } transition duration-300 cursor-pointer border-b-4 border-transparent  mx-10 font-light tracking-wider`}
                     >
                         Dates
                     </li>
-                    <a href="https://timezonerecords.lnk.to/asylum">
+                    <a href={album.albumLink}>
                         <li
                             className={`transition duration-300 cursor-pointer border-b-4 border-transparent hover:border-color-primary mx-10 flex flex-col text-center animate-pulse`}
                         >
-                            <span className="font-medium">The New Album: </span>
+                            <span className="font-medium">
+                                {album.catchPhrase}
+                            </span>
                             <span className="font-medium text-2xl text-primary leading-none pb-2">
-                                Asylum
+                                {album.albumName}
                             </span>
                         </li>
                     </a>
@@ -99,9 +106,9 @@ const DesktopMenu = forwardRef(({ moveMenuToTop, moveMenuToBottom }, ref) => {
                         onClick={setActiveMenu}
                         id="media"
                         className={`${
-                            active === 'media'
-                                ? 'border-color-primary'
-                                : 'hover:border-color-primary'
+                            active === "media"
+                                ? "border-color-primary"
+                                : "hover:border-color-primary"
                         } transition duration-300 cursor-pointer border-b-4 border-transparent mx-10 font-light tracking-wider`}
                     >
                         Media
@@ -110,9 +117,9 @@ const DesktopMenu = forwardRef(({ moveMenuToTop, moveMenuToBottom }, ref) => {
                         id="contact"
                         onClick={setActiveMenu}
                         className={`${
-                            active === 'contact'
-                                ? 'border-color-primary'
-                                : 'hover:border-color-primary'
+                            active === "contact"
+                                ? "border-color-primary"
+                                : "hover:border-color-primary"
                         } transition duration-300 cursor-pointer border-b-4 border-transparent mx-10 font-light tracking-wider`}
                     >
                         Contact

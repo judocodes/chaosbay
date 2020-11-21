@@ -5,6 +5,9 @@
     "dependencies": {
         "@emotion/core": "^11.0.0",
         "@emotion/react": "^11.0.0",
+        "@sanity/block-content-to-react": "^2.0.7",
+        "@sanity/client": "^2.0.9",
+        "@sanity/image-url": "^0.140.19",
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
@@ -12,6 +15,7 @@
         "cloudinary-react": "^1.6.8",
         "customize-cra": "^1.0.0",
         "gsap": "^3.5.1",
+        "luxon": "^1.25.0",
         "postcss": "^8.1.6",
         "postcss-cli": "^8.2.0",
         "react": "^17.0.1",
@@ -22,6 +26,7 @@
         "react-scripts": "4.0.0",
         "simple-react-lightbox": "^3.3.4-2",
         "tailwindcss": "^1.9.6",
+        "validator": "^13.1.17",
         "web-vitals": "^0.2.4"
     },
     "scripts": {
