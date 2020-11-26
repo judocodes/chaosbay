@@ -40,7 +40,7 @@ const Contact = ({ headingStyle }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...formFields }),
         })
-            .then(() => console.log("Form Submitted"))
+            .then(response => console.log("Form Submitted", response))
             .catch(console.error);
 
         setButtonText("Thank You!");
@@ -60,8 +60,7 @@ const Contact = ({ headingStyle }) => {
             <h3 className={`font-semibold mb-2 text-2xl ${headingStyle}`}>
                 Contact Us
             </h3>
-            <form name="contact" method="post">
-                <input type="hidden" name="form-name" value="contact" />
+            <form onSubmit={sendMail}>
                 <input
                     name="name"
                     type="text"
@@ -107,7 +106,6 @@ const Contact = ({ headingStyle }) => {
                     }`}
                 ></textarea>
                 <button
-                    onClick={sendMail}
                     type="submit"
                     className="mt-4 bg-primary rounded-lg shadow-md mx-auto px-8 py-2 text-white outline-none"
                 >
