@@ -35,7 +35,7 @@ const MobileAlbumButton = () => {
             </li>
             {albumOpen && (
                 <li className="transform origin-top scale-y-0" ref={albumPicEl}>
-                    <a href={album.albumLink}>
+                    <a href={album.albumLink} target="_blank">
                         <img
                             className="block relative w-full object-fit"
                             alt="Album Artwork"

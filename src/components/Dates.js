@@ -3,6 +3,7 @@ import { SiBandsintown } from "react-icons/si";
 
 import ChaosbayEvent from "./ChaosbayEvent";
 import Divider from "./Divider";
+import Loading from "./Loading";
 
 const Dates = ({ headingStyle, linkStyle }) => {
     const [events, setEvents] = useState([]);
@@ -53,7 +54,7 @@ const Dates = ({ headingStyle, linkStyle }) => {
             </h3>
             <Divider />
             {loading ? (
-                <h3 className="text-white text-center">Loading...</h3>
+                <Loading />
             ) : events && events.length < 0 ? (
                 <h3 className="text-white text-center">
                     There are currently no events scheduled.

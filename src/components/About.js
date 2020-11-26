@@ -25,7 +25,6 @@ const About = ({ h, textStyle, headingStyle }) => {
             )
             .then(([postData]) => {
                 setData(postData);
-                console.log(postData);
             })
             .catch(console.error);
     }, []);

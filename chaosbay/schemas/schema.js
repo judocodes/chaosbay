@@ -9,6 +9,7 @@ import about from "./about";
 import media from "./media";
 import maintext from "./maintext";
 import album from "./album";
+import impressum from "./impressum";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -16,5 +17,5 @@ export default createSchema({
     name: "default",
     // Then proceed to concatenate our document type
     // to the ones provided by any plugins that are installed
-    types: schemaTypes.concat([maintext, about, media, album]),
+    types: schemaTypes.concat([maintext, about, media, album, impressum]),
 });

@@ -90,7 +90,7 @@ const DesktopMenu = forwardRef(({ moveMenuToTop, moveMenuToBottom }, ref) => {
                     >
                         Dates
                     </li>
-                    <a href={album.albumLink}>
+                    <a href={album.albumLink} target="_blank">
                         <li
                             className={`transition duration-300 cursor-pointer border-b-4 border-transparent hover:border-color-primary mx-10 flex flex-col text-center animate-pulse`}
                         >

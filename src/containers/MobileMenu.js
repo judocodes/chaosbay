@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, Suspense, lazy } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { VscClose } from "react-icons/vsc";
 import SocialIcons from "../components/SocialIcons";
@@ -129,6 +130,13 @@ const MobileMenu = ({ toggle }) => {
                     </li>
                 )}
             </ul>
+            <a
+                href="/impressum"
+                target="_blank"
+                className="bottom-0 right-0 p-4 text-xs text-white uppercase tracking-wider "
+            >
+                Impressum
+            </a>
         </section>
     );
 };
